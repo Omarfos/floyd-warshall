@@ -1,10 +1,11 @@
 CC=clang
 MPICC=mpicc
-CFLAGS=-std=c99 -g
+CFLAGS=-std=c99 -g 
+LDFLAGS = -Xpreprocessor -fopenmp -lomp
 
 # If you're using clang, these are good flags to try
-OPTFLAGS=-Ofast -march=native
+OPTFLAGS=-O3 -march=native
 
-CFLAGS+=$(OPTFLAGS)
+CFLAGS+=$(OPTFLAGS) $(LDFLAGS) 
 MPI_CFLAGS=$(CFLAGS)
 OMP_CFLAGS=$(CFLAGS)
