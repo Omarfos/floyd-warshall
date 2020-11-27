@@ -5,6 +5,7 @@
 #include <math.h>
 #include <unistd.h>
 #include <omp.h>
+#include <mpi.h>
 #include "mt19937p.h"
 
 //ldoc on
@@ -44,7 +45,6 @@ int square(int n,               // Number of nodes
            int* restrict lnew)  // Partial distance at step s+1
 {
     int done = 1;
-    #pragma omp parallel for shared(l, lnew) reduction(&& : done)
     for (int j = 0; j < n; ++j) {
         for (int i = 0; i < n; ++i) {
             int lij = lnew[j*n+i];
@@ -203,6 +203,9 @@ const char* usage =
 
 int main(int argc, char** argv)
 {
+    // Initialize MPI environment
+    MPI_Init(&argc, &argv);
+
     int n    = 200;            // Number of nodes
     double p = 0.05;           // Edge probability
     const char* ifname = NULL; // Adjacency matrix file name
@@ -224,6 +227,13 @@ int main(int argc, char** argv)
         }
     }
 
+    int world_size;
+    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+    int world_rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+
+    printf("Starting Process %d / %d\n", world_rank, world_size);
+
     // Graph generation + output
     int* l = gen_graph(n, p);
     if (ifname)
@@ -234,7 +244,6 @@ int main(int argc, char** argv)
     shortest_paths(n, l);
     double t1 = omp_get_wtime();
 
-    printf("== OpenMP with %d threads\n", omp_get_max_threads());
     printf("n:     %d\n", n);
     printf("p:     %g\n", p);
     printf("Time:  %g\n", t1-t0);
@@ -246,5 +255,9 @@ int main(int argc, char** argv)
 
     // Clean up
     free(l);
+
+    // Finalize MPI environment.
+    MPI_Finalize();
+    
     return 0;
 }
