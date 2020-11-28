@@ -6,6 +6,6 @@ LDFLAGS = -Xpreprocessor -fopenmp -lomp
 # If you're using clang, these are good flags to try
 OPTFLAGS=-O3 -march=native
 
-CFLAGS+=$(OPTFLAGS) $(LDFLAGS) 
-MPI_CFLAGS=$(CFLAGS)
-OMP_CFLAGS=$(CFLAGS)
+CFLAGS+=$(OPTFLAGS) 
+MPI_CFLAGS=$(CFLAGS) $(LDFLAGS)  
+OMP_CFLAGS=$(CFLAGS) $(LDFLAGS)  
