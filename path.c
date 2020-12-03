@@ -206,6 +206,14 @@ int main(int argc, char** argv)
     // Initialize MPI environment
     MPI_Init(&argc, &argv);
 
+    int world_size;
+    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+    int world_rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+    printf("---- Starting Process %d / %d ----\n", world_rank, world_size);
+
+
+
     int n    = 200;            // Number of nodes
     double p = 0.05;           // Edge probability
     const char* ifname = NULL; // Adjacency matrix file name
@@ -227,34 +235,75 @@ int main(int argc, char** argv)
         }
     }
 
-    int world_size;
-    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
-    int world_rank;
-    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
 
-    printf("Starting Process %d / %d\n", world_rank, world_size);
 
-    // Graph generation + output
-    int* l = gen_graph(n, p);
-    if (ifname)
-        write_matrix(ifname,  n, l);
+    int num_block;
+    switch (world_size-1) {
+        case 1: num_block = 1; break;
+        case 4: num_block = 2; break;
+        case 9: num_block = 3; break;
+    }
+    int size_block = n / num_block;
+    int* offset_x = malloc((world_size-1) * sizeof(int));
+    int* offset_y = malloc((world_size-1) * sizeof(int));
+    int* offset_ax = malloc((world_size-1) * sizeof(int));
+    int* offset_ay = malloc((world_size-1) * sizeof(int));
+    int* offset_bx = malloc((world_size-1) * sizeof(int));
+    int* offset_by = malloc((world_size-1) * sizeof(int));
+    for (int i = 0; i < num_block; ++i) {
+        for (int j = 0; j < num_block; ++j) {
+            offset_x[j+i*num_block] = n * i / num_block;
+            offset_y[j+i*num_block] = n * j / num_block;
+            offset_ax[j+i*num_block] = n * i / num_block;
+            offset_ay[j+i*num_block] = n * ((i+j)%num_block) / num_block;
+            offset_bx[j+i*num_block] = n * ((i+j)%num_block) / num_block;
+            offset_by[j+i*num_block] = n * j / num_block;
+        }
+    }
+    if (world_rank == 0) {
+        printf("Process %d does output file IO and command line IO\n", world_rank);
+        for (int i = 0; i < world_size-1; ++i) {
+            printf("Process %d has offset_x[%d]: %d, offset_y[%d]: %d, offset_ax[%d]: %d, offset_ay[%d]: %d, offset_bx[%d]: %d, offset_by[%d]: %d\n",
+                i+1, i, offset_x[i], i, offset_y[i], i, offset_ax[i], i, offset_ay[i], i, offset_bx[i], i, offset_by[i]);
+        }
+        printf("There are %d blocks in each direction\n", num_block);
+        printf("Each block has size %d\n", size_block);
+    }
 
-    // Time the shortest paths code
-    double t0 = omp_get_wtime();
-    shortest_paths(n, l);
-    double t1 = omp_get_wtime();
 
-    printf("n:     %d\n", n);
-    printf("p:     %g\n", p);
-    printf("Time:  %g\n", t1-t0);
-    printf("Check: %X\n", fletcher16(l, n*n));
 
-    // Generate output file
-    if (ofname)
-        write_matrix(ofname, n, l);
+    if (world_rank == 0) {
+        // Graph generation + output
+        int* l = gen_graph(n, p);
+        if (ifname)
+            write_matrix(ifname,  n, l);
 
-    // Clean up
-    free(l);
+        // Time the shortest paths code
+        double t0 = omp_get_wtime();
+        shortest_paths(n, l);
+        double t1 = omp_get_wtime();
+
+        printf("n:     %d\n", n);
+        printf("p:     %g\n", p);
+        printf("Time:  %g\n", t1-t0);
+        printf("Check: %X\n", fletcher16(l, n*n));
+
+        // Generate output file
+        if (ofname)
+            write_matrix(ofname, n, l);
+
+        // Clean up
+        free(l);
+    }
+    else if (world_rank != 0) {
+        int world_rank_0 = world_rank - 1;
+        int r_rank_0 = (world_rank_0 / num_block) * num_block + (world_rank_0 + 1) % num_block;
+        int l_rank_0 = (world_rank_0 / num_block) * num_block + (world_rank_0 + num_block - 1) % num_block;
+        int t_rank_0 = (world_rank_0 + world_size - num_block - 1) % (world_size - 1);
+        int b_rank_0 = (world_rank_0 + num_block) % (world_size - 1);
+        printf("Process %d: left has world rank %d, right has world rank %d, top has world rank %d, bottom has world rank %d\n", 
+            world_rank_0+1, l_rank_0+1, r_rank_0+1, t_rank_0+1, b_rank_0+1);
+    }
 
     // Finalize MPI environment.
     MPI_Finalize();
