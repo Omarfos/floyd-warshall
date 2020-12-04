@@ -62,6 +62,26 @@ int square(int n,               // Number of nodes
     return done;
 }
 
+int square_(int n, int* restrict l, int* restrict la, int* restrict lb)
+{
+    int done = 1;
+    for (int j = 0; j < n; ++j) {
+        for (int i = 0; i < n; ++i) {
+            int lij = l[j*n+i];
+            for (int k = 0; k < n; ++k) {
+                int lik = la[k*n+i];
+                int lkj = lb[j*n+k];
+                if (lik + lkj < lij) {
+                    lij = lik+lkj;
+                    done = 0;
+                }
+            }
+            l[j*n+i] = lij;
+        }
+    }
+    return done;
+}
+
 /**
  *
  * The value $l_{ij}^0$ is almost the same as the $(i,j)$ entry of
@@ -190,6 +210,102 @@ void write_matrix(const char* fname, int n, int* a)
 }
 
 /**
+ * # MPI Comunication Helper Functions & Functions
+ */
+void copy_out(int* restrict dst, const int* restrict src, int nx, int ny, int stride) {
+    for (int iy = 0; iy < ny; ++iy) {
+        for (int ix = 0; ix < nx; ++ix) {
+            dst[iy*nx+ix] = src[iy*stride+ix];
+        }
+    }
+}
+
+void copy_in(const int* restrict src, int* restrict dst, int nx, int ny, int stride) {
+    for (int iy = 0; iy < ny; ++iy) {
+        for (int ix = 0; ix < nx; ++ix) {
+            dst[iy*stride+ix] = src[iy*nx+ix];
+        }
+    }
+}
+
+void send_initial_graph(int* restrict l, int world_rank, int world_size, 
+                        int size_block, int n,
+                        const int* restrict offset_x, const int* restrict offset_y) {
+    int len = size_block * size_block;
+    for (int i = 1; i < world_size; ++i) {
+        int* buffer = malloc(len * sizeof(int));
+        copy_out(buffer, l + offset_x[i-1] + offset_y[i-1] * n, size_block, size_block, n);
+        MPI_Send(buffer, len, MPI_INT, i, 
+                0, MPI_COMM_WORLD);
+        free(buffer);
+        printf("Process %d sent initial graph to process %d\n", world_rank, i);
+    }
+}
+
+void recv_initial_graph(int* restrict l, int world_rank, int size_block) {
+    int len = size_block * size_block;
+    MPI_Recv(l, len, MPI_INT, 0, 
+            0, MPI_COMM_WORLD, NULL);
+    printf("Process %d recv initial graph from process %d\n", world_rank, 0);
+}
+
+void send_current_graph(int* restrict l, int world_rank, int world_size, 
+                        int size_block, int n,
+                        const int* restrict offset_ax, const int* restrict offset_ay, 
+                        const int* restrict offset_bx, const int* restrict offset_by) {
+    int len = size_block * size_block;
+    for (int i = 1; i < world_size; ++i) {
+        int* buffer = malloc(len * sizeof(int));
+        copy_out(buffer, l + offset_ax[i-1] + offset_ay[i-1] * n, size_block, size_block, n);
+        MPI_Send(buffer, len, MPI_INT, i, 
+                0, MPI_COMM_WORLD);
+        copy_out(buffer, l + offset_bx[i-1] + offset_by[i-1] * n, size_block, size_block, n);
+        MPI_Send(buffer, len, MPI_INT, i, 
+                0, MPI_COMM_WORLD);
+        free(buffer);
+        printf("Process %d sent current graph to process %d\n", world_rank, i);
+    }
+}
+
+void recv_current_graph(int* restrict la, int* restrict lb, int world_rank, int size_block) {
+    int len = size_block * size_block;
+    MPI_Recv(la, len, MPI_INT, 0, 
+            0, MPI_COMM_WORLD, NULL);
+    MPI_Recv(lb, len, MPI_INT, 0, 
+            0, MPI_COMM_WORLD, NULL);
+    printf("Process %d recv current graph from process %d\n", world_rank, 0);
+}
+
+void send_updated_graph(int* restrict l, int* done, int world_rank, int size_block) {
+    int len = size_block * size_block;
+    MPI_Send(done, 1, MPI_INT, 0, 
+            0, MPI_COMM_WORLD);
+    MPI_Send(l, len, MPI_INT, 0, 
+            0, MPI_COMM_WORLD);
+    printf("Process %d sent updated graph to process %d\n", world_rank, 0);
+}
+
+int recv_updated_graph(int* restrict l, int world_rank, int world_size, 
+                        int size_block, int n,
+                        const int* restrict offset_x, const int* restrict offset_y) {
+    int done = 1;
+    for (int i = 1; i < world_size; ++i) {
+        int done_;
+        int len = size_block * size_block;
+        int* buffer = malloc(len * sizeof(int));
+        MPI_Recv(&done_, 1, MPI_INT, i, 
+                0, MPI_COMM_WORLD, NULL);
+        done = done && done_;
+        MPI_Recv(buffer, len, MPI_INT, i, 
+                0, MPI_COMM_WORLD, NULL);
+        copy_in(buffer, l + offset_x[i-1] + offset_y[i-1] * n, size_block, size_block, n);
+        free(buffer);
+        printf("Process %d recv updated graph from process %d\n", world_rank, i);
+    }
+    return done;
+}
+
+/**
  * # The `main` event
  */
 
@@ -278,10 +394,37 @@ int main(int argc, char** argv)
         if (ifname)
             write_matrix(ifname,  n, l);
 
+        // Generate l_{ij}^0 from adjacency matrix representation
+        infinitize(n, l);
+        for (int i = 0; i < n*n; i += n+1)
+            l[i] = 0;
+
+
+
         // Time the shortest paths code
         double t0 = omp_get_wtime();
-        shortest_paths(n, l);
+
+        send_initial_graph(l, world_rank, world_size, size_block, n,
+                        offset_x, offset_y);
+        
+        for (int done = 0; !done; ) {
+            send_current_graph(l, world_rank, world_size, size_block, n,
+                    offset_ax, offset_ay, offset_bx, offset_by);
+
+            done = recv_updated_graph(l, world_rank, world_size, size_block, n,
+                    offset_x, offset_y);
+
+            for (int i = 1; i < world_size; ++i) {
+                MPI_Send(&done, 1, MPI_INT, i, 
+                        0, MPI_COMM_WORLD);
+            }
+        }
+
         double t1 = omp_get_wtime();
+
+        
+
+        deinfinitize(n, l);
 
         printf("n:     %d\n", n);
         printf("p:     %g\n", p);
@@ -303,6 +446,59 @@ int main(int argc, char** argv)
         int b_rank_0 = (world_rank_0 + num_block) % (world_size - 1);
         printf("Process %d: left has world rank %d, right has world rank %d, top has world rank %d, bottom has world rank %d\n", 
             world_rank_0+1, l_rank_0+1, r_rank_0+1, t_rank_0+1, b_rank_0+1);
+
+        int* l = malloc(size_block * size_block * sizeof(int));
+        recv_initial_graph(l, world_rank, size_block);
+
+        int* la = malloc(size_block * size_block * sizeof(int));
+        int* lb = malloc(size_block * size_block * sizeof(int));
+
+        for (int done = 0; !done; ) {
+            recv_current_graph(la, lb, world_rank, size_block);
+
+            int len = size_block * size_block;
+            for (int iter = 0; iter < num_block; ++iter) {
+                int done_ = 1;
+                if (iter != 0) {
+                    if (world_rank-1 != l_rank_0) {
+                        if ((world_rank-1) % num_block == 0) {
+                            MPI_Send(la, len, MPI_INT, l_rank_0+1, 
+                                    0, MPI_COMM_WORLD);
+                            MPI_Recv(la, len, MPI_INT, r_rank_0+1, 
+                                    0, MPI_COMM_WORLD, NULL);
+                        }
+                        else {
+                            MPI_Recv(la, len, MPI_INT, r_rank_0+1, 
+                                    0, MPI_COMM_WORLD, NULL);
+                            MPI_Send(la, len, MPI_INT, l_rank_0+1, 
+                                    0, MPI_COMM_WORLD);
+                        }
+                    }
+
+                    if (world_rank-1 != t_rank_0) {
+                        if ((world_rank-1) / num_block == 0) {
+                            MPI_Send(lb, len, MPI_INT, t_rank_0+1, 
+                                    0, MPI_COMM_WORLD);
+                            MPI_Recv(lb, len, MPI_INT, b_rank_0+1, 
+                                    0, MPI_COMM_WORLD, NULL);
+                        }
+                        else {
+                            MPI_Recv(lb, len, MPI_INT, b_rank_0+1, 
+                                    0, MPI_COMM_WORLD, NULL);
+                            MPI_Send(lb, len, MPI_INT, t_rank_0+1, 
+                                    0, MPI_COMM_WORLD);
+                        }
+                    }
+                }
+
+                done = done_ && square_(size_block, l, la, lb);
+            }
+
+            send_updated_graph(l, &done, world_rank, size_block);
+
+            MPI_Recv(&done, 1, MPI_INT, 0, 
+                    0, MPI_COMM_WORLD, NULL);
+        }
     }
 
     // Finalize MPI environment.
