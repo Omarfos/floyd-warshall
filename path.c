@@ -462,31 +462,43 @@ int main(int argc, char** argv)
                 if (iter != 0) {
                     if (world_rank-1 != l_rank_0) {
                         if ((world_rank-1) % num_block == 0) {
-                            MPI_Send(la, len, MPI_INT, l_rank_0+1, 
+                            int* buffer = malloc(len * sizeof(int));
+                            copy_out(buffer, la, size_block, size_block, size_block);
+                            MPI_Send(buffer, len, MPI_INT, l_rank_0+1, 
                                     0, MPI_COMM_WORLD);
                             MPI_Recv(la, len, MPI_INT, r_rank_0+1, 
                                     0, MPI_COMM_WORLD, NULL);
+                            free(buffer);
                         }
                         else {
+                            int* buffer = malloc(len * sizeof(int));
+                            copy_out(buffer, la, size_block, size_block, size_block);
                             MPI_Recv(la, len, MPI_INT, r_rank_0+1, 
                                     0, MPI_COMM_WORLD, NULL);
-                            MPI_Send(la, len, MPI_INT, l_rank_0+1, 
+                            MPI_Send(buffer, len, MPI_INT, l_rank_0+1, 
                                     0, MPI_COMM_WORLD);
+                            free(buffer);
                         }
                     }
 
                     if (world_rank-1 != t_rank_0) {
                         if ((world_rank-1) / num_block == 0) {
-                            MPI_Send(lb, len, MPI_INT, t_rank_0+1, 
+                            int* buffer = malloc(len * sizeof(int));
+                            copy_out(buffer, lb, size_block, size_block, size_block);
+                            MPI_Send(buffer, len, MPI_INT, t_rank_0+1, 
                                     0, MPI_COMM_WORLD);
                             MPI_Recv(lb, len, MPI_INT, b_rank_0+1, 
                                     0, MPI_COMM_WORLD, NULL);
+                            free(buffer);
                         }
                         else {
+                            int* buffer = malloc(len * sizeof(int));
+                            copy_out(buffer, lb, size_block, size_block, size_block);
                             MPI_Recv(lb, len, MPI_INT, b_rank_0+1, 
                                     0, MPI_COMM_WORLD, NULL);
-                            MPI_Send(lb, len, MPI_INT, t_rank_0+1, 
+                            MPI_Send(buffer, len, MPI_INT, t_rank_0+1, 
                                     0, MPI_COMM_WORLD);
+                            free(buffer);
                         }
                     }
                 }
