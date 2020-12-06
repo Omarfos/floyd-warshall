@@ -1,0 +1,5 @@
+== MPI with 30 ranks
+n:     600
+p:     0.05
+Time:  0.103588
+Check: 5FD6

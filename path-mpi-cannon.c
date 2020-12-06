@@ -4,9 +4,15 @@
 #include <string.h>
 #include <math.h>
 #include <unistd.h>
-#include <omp.h>
 #include <mpi.h>
 #include "mt19937p.h"
+
+#ifdef _OPENMP
+#include <omp.h>
+#else
+#include <sys/time.h>
+#endif
+
 
 //ldoc on
 /**
@@ -409,7 +415,13 @@ int main(int argc, char** argv)
 
 
         // Time the shortest paths code
-        double t0 = omp_get_wtime();
+
+#ifdef _OPENMP
+    double t0 = omp_get_wtime();
+#else 
+    struct timeval t0, t1;
+    gettimeofday(&t0, NULL);
+#endif
 
         // Send partitions of l
         send_initial_graph(l, world_rank, world_size, size_block, n,
@@ -431,15 +443,19 @@ int main(int argc, char** argv)
             }
         }
 
-        double t1 = omp_get_wtime();
-
-        
+#ifdef _OPENMP
+    double t1 = omp_get_wtime();
+    double elapsed = t1 - t0;
+#else 
+    gettimeofday(&t1, NULL);
+    double elapsed = (t1.tv_sec-t0.tv_sec) + (t1.tv_usec-t0.tv_usec)*1e-6;
+#endif
 
         deinfinitize(n, l);
 
         printf("n:     %d\n", n);
         printf("p:     %g\n", p);
-        printf("Time:  %g\n", t1-t0);
+        printf("Time:  %g\n", elapsed);
         printf("Check: %X\n", fletcher16(l, n*n));
 
         // Generate output file

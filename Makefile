@@ -18,7 +18,7 @@ include Makefile.in.$(PLATFORM)
 
 # === Executables
 
-exe: path.x
+exe: path.x path-mpi.x path-mpi-cannon.x
 
 path.x: path.o mt19937p.o
 	$(CC) $(OMP_CFLAGS) $^ -o $@
@@ -30,6 +30,12 @@ path-mpi.x: path-mpi.o mt19937p.o
 	$(MPICC) $(MPI_CFLAGS) $^ -o $@
 
 path-mpi.o: path-mpi.c
+	$(MPICC) -c $(MPI_CFLAGS) $<
+
+path-mpi-cannon.x: path-mpi-cannon.o mt19937p.o
+	$(MPICC) $(MPI_CFLAGS) $^ -o $@
+
+path-mpi-cannon.o: path-mpi-cannon.c
 	$(MPICC) -c $(MPI_CFLAGS) $<
 
 %.o: %.c
@@ -51,4 +57,4 @@ clean:
 	rm -f *.o 
 
 realclean: clean
-	rm -f path.x path-mpi.x path.md main.pdf
+	rm -f path.x path-mpi.x path-mpi-cannon.x path.md main.pdf

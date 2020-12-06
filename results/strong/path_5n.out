@@ -1,0 +1,5 @@
+== OpenMP with 5 threads
+n:     1200
+p:     0.05
+Time:  8.65799
+Check: 857C

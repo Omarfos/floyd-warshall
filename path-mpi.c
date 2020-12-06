@@ -4,9 +4,14 @@
 #include <string.h>
 #include <math.h>
 #include <unistd.h>
-#include <omp.h>
 #include <mpi.h>
 #include "mt19937p.h"
+
+#ifdef _OPENMP
+#include <omp.h>
+#else
+#include <sys/time.h>
+#endif
 
 //ldoc on
 /**
@@ -270,9 +275,9 @@ int main(int argc, char** argv)
         }
     }
 
-    int* l = gen_graph(n, p);
     
     MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD); 
+    int* l = gen_graph(n, p);
 
     if (rank == 0) {
         if (ifname)
@@ -283,15 +288,24 @@ int main(int argc, char** argv)
     // Graph generation + output
 
     // Time the shortest paths code
+#ifdef _OPENMP
     double t0 = omp_get_wtime();
     shortest_paths(n, l, rank, size);
     double t1 = omp_get_wtime();
+    double elapsed = t1 - t0;
+#else 
+    struct timeval t0, t1;
+    gettimeofday(&t0, NULL);
+    shortest_paths(n, l, rank, size);
+    gettimeofday(&t1, NULL);
+    double elapsed = (t1.tv_sec-t0.tv_sec) + (t1.tv_usec-t0.tv_usec)*1e-6;
+#endif
 
     if (rank == 0) {
-        printf("== MPI with %d threads\n", size);
+        printf("== MPI with %d ranks\n", size);
         printf("n:     %d\n", n);
         printf("p:     %g\n", p);
-        printf("Time:  %g\n", t1-t0);
+        printf("Time:  %g\n", elapsed);
         printf("Check: %X\n", fletcher16(l, n*n));
 
         // Generate output file

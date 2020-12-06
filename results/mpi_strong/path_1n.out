@@ -1,0 +1,11 @@
+---- Starting Process 0 / 2 ----
+Process 0 does output file IO and command line IO
+Process 1 has offset_x[0]: 0, offset_y[0]: 0, offset_ax[0]: 0, offset_ay[0]: 0, offset_bx[0]: 0, offset_by[0]: 0
+There are 1 blocks in each direction
+Each block has size 1200
+---- Starting Process 1 / 2 ----
+Process 1: left has world rank 1, right has world rank 1, top has world rank 1, bottom has world rank 1
+n:     1200
+p:     0.05
+Time:  35.3217
+Check: 857C

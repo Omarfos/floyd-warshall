@@ -1,7 +1,7 @@
 CC=gcc
+MPICC=mpicc
 CFLAGS=-std=c99 -g
 
-# If you're using icc, these are good flags to try
 OPTFLAGS=-O3 -march=native
 
 CFLAGS+=$(OPTFLAGS)
