@@ -358,7 +358,14 @@ int main(int argc, char** argv)
         case 1: num_block = 1; break;
         case 4: num_block = 2; break;
         case 9: num_block = 3; break;
+        case 16: num_block = 4; break;
+        case 25: num_block = 5; break;
+        case 36: num_block = 6; break;
+        case 49: num_block = 7; break;
+        case 64: num_block = 8; break;
+        case 81: num_block = 9; break;
     }
+
     int size_block = n / num_block;
     int* offset_x = malloc((world_size-1) * sizeof(int));
     int* offset_y = malloc((world_size-1) * sizeof(int));
