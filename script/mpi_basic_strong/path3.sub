@@ -2,7 +2,7 @@
 #SBATCH -J path
 #SBATCH -o results/mpi_basic_strong/path_3n.out
 #SBATCH -e results/mpi_basic_strong/path_3n.err
-#SBATCH --ntasks=30
+#SBATCH --ntasks=18
 #SBATCH --cpus-per-task=1
 #SBATCH --get-user-env 
 #SBATCH -t 00:10:00 
@@ -12,5 +12,5 @@
 cd $HOME/floyd-warshall 
 source /etc/profile.d/modules.sh 
 module load openmpi-4.0.0 
-mpirun -n 30 ./path-mpi.x -n 1200
+mpirun -n 18 ./path-mpi.x -n 1800
 

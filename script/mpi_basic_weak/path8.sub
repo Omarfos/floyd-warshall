@@ -2,7 +2,7 @@
 #SBATCH -J path
 #SBATCH -o results/mpi_basic_weak/path_8n.out
 #SBATCH -e results/mpi_basic_weak/path_8n.err
-#SBATCH --ntasks=80
+#SBATCH --ntasks=90
 #SBATCH --cpus-per-task=1
 #SBATCH --get-user-env 
 #SBATCH -t 00:10:00 
@@ -12,5 +12,5 @@
 cd $HOME/floyd-warshall 
 source /etc/profile.d/modules.sh 
 module load openmpi-4.0.0 
-mpirun -n 80 ./path-mpi.x -n 1600
+mpirun -n 90 ./path-mpi.x -n 2700
 

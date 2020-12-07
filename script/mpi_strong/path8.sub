@@ -2,7 +2,7 @@
 #SBATCH -J path
 #SBATCH -o results/mpi_strong/path_8n.out
 #SBATCH -e results/mpi_strong/path_8n.err
-#SBATCH --ntasks=65
+#SBATCH --ntasks=82
 #SBATCH --cpus-per-task=1
 #SBATCH --get-user-env 
 #SBATCH -t 00:10:00 
@@ -12,5 +12,5 @@
 cd $HOME/floyd-warshall 
 source /etc/profile.d/modules.sh 
 module load openmpi-4.0.0 
-mpirun -n 65 ./path-mpi-cannon.x -n 1200
+mpirun -n 82 ./path-mpi-cannon.x -n 1800
 

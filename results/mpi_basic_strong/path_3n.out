@@ -1,5 +1,1 @@
-== MPI with 30 ranks
-n:     1200
-p:     0.05
-Time:  1.60654
-Check: 857C
+18 total processes failed to start
