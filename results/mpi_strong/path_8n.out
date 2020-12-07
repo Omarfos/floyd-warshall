@@ -1,0 +1,251 @@
+---- Starting Process 0 / 82 ----
+Process 0 does output file IO and command line IO
+Process 1 has offset_x[0]: 0, offset_y[0]: 0, offset_ax[0]: 0, offset_ay[0]: 0, offset_bx[0]: 0, offset_by[0]: 0
+Process 2 has offset_x[1]: 0, offset_y[1]: 200, offset_ax[1]: 0, offset_ay[1]: 200, offset_bx[1]: 200, offset_by[1]: 200
+Process 3 has offset_x[2]: 0, offset_y[2]: 400, offset_ax[2]: 0, offset_ay[2]: 400, offset_bx[2]: 400, offset_by[2]: 400
+Process 4 has offset_x[3]: 0, offset_y[3]: 600, offset_ax[3]: 0, offset_ay[3]: 600, offset_bx[3]: 600, offset_by[3]: 600
+Process 5 has offset_x[4]: 0, offset_y[4]: 800, offset_ax[4]: 0, offset_ay[4]: 800, offset_bx[4]: 800, offset_by[4]: 800
+Process 6 has offset_x[5]: 0, offset_y[5]: 1000, offset_ax[5]: 0, offset_ay[5]: 1000, offset_bx[5]: 1000, offset_by[5]: 1000
+Process 7 has offset_x[6]: 0, offset_y[6]: 1200, offset_ax[6]: 0, offset_ay[6]: 1200, offset_bx[6]: 1200, offset_by[6]: 1200
+Process 8 has offset_x[7]: 0, offset_y[7]: 1400, offset_ax[7]: 0, offset_ay[7]: 1400, offset_bx[7]: 1400, offset_by[7]: 1400
+Process 9 has offset_x[8]: 0, offset_y[8]: 1600, offset_ax[8]: 0, offset_ay[8]: 1600, offset_bx[8]: 1600, offset_by[8]: 1600
+---- Starting Process 46 / 82 ----
+Process 46: left has world rank 54, right has world rank 47, top has world rank 37, bottom has world rank 55
+---- Starting Process 1 / 82 ----
+Process 1: left has world rank 9, right has world rank 2, top has world rank 73, bottom has world rank 10
+---- Starting Process 62 / 82 ----
+Process 62: left has world rank 61, right has world rank 63, top has world rank 53, bottom has world rank 71
+---- Starting Process 21 / 82 ----
+Process 21: left has world rank 20, right has world rank 22, top has world rank 12, bottom has world rank 30
+---- Starting Process 47 / 82 ----
+Process 47: left has world rank 46, right has world rank 48, top has world rank 38, bottom has world rank 56
+---- Starting Process 3 / 82 ----
+Process 3: left has world rank 2, right has world rank 4, top has world rank 75, bottom has world rank 12
+---- Starting Process 63 / 82 ----
+Process 63: left has world rank 62, right has world rank 55, top has world rank 54, bottom has world rank 72
+---- Starting Process 22 / 82 ----
+Process 22: left has world rank 21, right has world rank 23, top has world rank 13, bottom has world rank 31
+---- Starting Process 48 / 82 ----
+Process 48: left has world rank 47, right has world rank 49, top has world rank 39, bottom has world rank 57
+---- Starting Process 4 / 82 ----
+Process 4: left has world rank 3, right has world rank 5, top has world rank 76, bottom has world rank 13
+---- Starting Process 65 / 82 ----
+Process 65: left has world rank 64, right has world rank 66, top has world rank 56, bottom has world rank 74
+---- Starting Process 23 / 82 ----
+Process 23: left has world rank 22, right has world rank 24, top has world rank 14, bottom has world rank 32
+---- Starting Process 49 / 82 ----
+Process 49: left has world rank 48, right has world rank 50, top has world rank 40, bottom has world rank 58
+---- Starting Process 5 / 82 ----
+Process 5: left has world rank 4, right has world rank 6, top has world rank 77, bottom has world rank 14
+---- Starting Process 66 / 82 ----
+Process 66: left has world rank 65, right has world rank 67, top has world rank 57, bottom has world rank 75
+---- Starting Process 24 / 82 ----
+Process 24: left has world rank 23, right has world rank 25, top has world rank 15, bottom has world rank 33
+---- Starting Process 54 / 82 ----
+Process 54: left has world rank 53, right has world rank 46, top has world rank 45, bottom has world rank 63
+---- Starting Process 7 / 82 ----
+Process 7: left has world rank 6, right has world rank 8, top has world rank 79, bottom has world rank 16
+---- Starting Process 68 / 82 ----
+Process 68: left has world rank 67, right has world rank 69, top has world rank 59, bottom has world rank 77
+---- Starting Process 29 / 82 ----
+Process 29: left has world rank 28, right has world rank 30, top has world rank 20, bottom has world rank 38
+---- Starting Process 55 / 82 ----
+Process 55: left has world rank 63, right has world rank 56, top has world rank 46, bottom has world rank 64
+---- Starting Process 8 / 82 ----
+Process 8: left has world rank 7, right has world rank 9, top has world rank 80, bottom has world rank 17
+---- Starting Process 69 / 82 ----
+Process 69: left has world rank 68, right has world rank 70, top has world rank 60, bottom has world rank 78
+---- Starting Process 31 / 82 ----
+Process 31: left has world rank 30, right has world rank 32, top has world rank 22, bottom has world rank 40
+---- Starting Process 56 / 82 ----
+Process 56: left has world rank 55, right has world rank 57, top has world rank 47, bottom has world rank 65
+---- Starting Process 10 / 82 ----
+---- Starting Process 71 / 82 ----
+Process 71: left has world rank 70, right has world rank 72, top has world rank 62, bottom has world rank 80
+---- Starting Process 33 / 82 ----
+Process 33: left has world rank 32, right has world rank 34, top has world rank 24, bottom has world rank 42
+---- Starting Process 57 / 82 ----
+Process 57: left has world rank 56, right has world rank 58, top has world rank 48, bottom has world rank 66
+---- Starting Process 14 / 82 ----
+Process 14: left has world rank 13, right has world rank 15, top has world rank 5, bottom has world rank 23
+---- Starting Process 72 / 82 ----
+Process 72: left has world rank 71, right has world rank 64, top has world rank 63, bottom has world rank 81
+---- Starting Process 34 / 82 ----
+Process 34: left has world rank 33, right has world rank 35, top has world rank 25, bottom has world rank 43
+---- Starting Process 58 / 82 ----
+Process 58: left has world rank 57, right has world rank 59, top has world rank 49, bottom has world rank 67
+---- Starting Process 15 / 82 ----
+Process 15: left has world rank 14, right has world rank 16, top has world rank 6, bottom has world rank 24
+---- Starting Process 74 / 82 ----
+Process 74: left has world rank 73, right has world rank 75, top has world rank 65, bottom has world rank 2
+---- Starting Process 35 / 82 ----
+Process 35: left has world rank 34, right has world rank 36, top has world rank 26, bottom has world rank 44
+---- Starting Process 59 / 82 ----
+Process 59: left has world rank 58, right has world rank 60, top has world rank 50, bottom has world rank 68
+---- Starting Process 18 / 82 ----
+Process 18: left has world rank 17, right has world rank 10, top has world rank 9, bottom has world rank 27
+---- Starting Process 76 / 82 ----
+Process 76: left has world rank 75, right has world rank 77, top has world rank 67, bottom has world rank 4
+---- Starting Process 37 / 82 ----
+Process 37: left has world rank 45, right has world rank 38, top has world rank 28, bottom has world rank 46
+---- Starting Process 60 / 82 ----
+Process 60: left has world rank 59, right has world rank 61, top has world rank 51, bottom has world rank 69
+Process 10 has offset_x[9]: 200, offset_y[9]: 0, offset_ax[9]: 200, offset_ay[9]: 200, offset_bx[9]: 200, offset_by[9]: 0
+Process 11 has offset_x[10]: 200, offset_y[10]: 200, offset_ax[10]: 200, offset_ay[10]: 400, offset_bx[10]: 400, offset_by[10]: 200
+Process 12 has offset_x[11]: 200, offset_y[11]: 400, offset_ax[11]: 200, offset_ay[11]: 600, offset_bx[11]: 600, offset_by[11]: 400
+Process 13 has offset_x[12]: 200, offset_y[12]: 600, offset_ax[12]: 200, offset_ay[12]: 800, offset_bx[12]: 800, offset_by[12]: 600
+Process 14 has offset_x[13]: 200, offset_y[13]: 800, offset_ax[13]: 200, offset_ay[13]: 1000, offset_bx[13]: 1000, offset_by[13]: 800
+Process 15 has offset_x[14]: 200, offset_y[14]: 1000, offset_ax[14]: 200, offset_ay[14]: 1200, offset_bx[14]: 1200, offset_by[14]: 1000
+Process 16 has offset_x[15]: 200, offset_y[15]: 1200, offset_ax[15]: 200, offset_ay[15]: 1400, offset_bx[15]: 1400, offset_by[15]: 1200
+Process 17 has offset_x[16]: 200, offset_y[16]: 1400, offset_ax[16]: 200, offset_ay[16]: 1600, offset_bx[16]: 1600, offset_by[16]: 1400
+Process 18 has offset_x[17]: 200, offset_y[17]: 1600, offset_ax[17]: 200, offset_ay[17]: 0, offset_bx[17]: 0, offset_by[17]: 1600
+Process 19 has offset_x[18]: 400, offset_y[18]: 0, offset_ax[18]: 400, offset_ay[18]: 400, offset_bx[18]: 400, offset_by[18]: 0
+Process 20 has offset_x[19]: 400, offset_y[19]: 200, offset_ax[19]: 400, offset_ay[19]: 600, offset_bx[19]: 600, offset_by[19]: 200
+Process 21 has offset_x[20]: 400, offset_y[20]: 400, offset_ax[20]: 400, offset_ay[20]: 800, offset_bx[20]: 800, offset_by[20]: 400
+Process 22 has offset_x[21]: 400, offset_y[21]: 600, offset_ax[21]: 400, offset_ay[21]: 1000, offset_bx[21]: 1000, offset_by[21]: 600
+Process 23 has offset_x[22]: 400, offset_y[22]: 800, offset_ax[22]: 400, offset_ay[22]: 1200, offset_bx[22]: 1200, offset_by[22]: 800
+Process 24 has offset_x[23]: 400, offset_y[23]: 1000, offset_ax[23]: 400, offset_ay[23]: 1400, offset_bx[23]: 1400, offset_by[23]: 1000
+Process 25 has offset_x[24]: 400, offset_y[24]: 1200, offset_ax[24]: 400, offset_ay[24]: 1600, offset_bx[24]: 1600, offset_by[24]: 1200
+Process 26 has offset_x[25]: 400, offset_y[25]: 1400, offset_ax[25]: 400, offset_ay[25]: 0, offset_bx[25]: 0, offset_by[25]: 1400
+Process 27 has offset_x[26]: 400, offset_y[26]: 1600, offset_ax[26]: 400, offset_ay[26]: 200, offset_bx[26]: 200, offset_by[26]: 1600
+Process 28 has offset_x[27]: 600, offset_y[27]: 0, offset_ax[27]: 600, offset_ay[27]: 600, offset_bx[27]: 600, offset_by[27]: 0
+Process 29 has offset_x[28]: 600, offset_y[28]: 200, offset_ax[28]: 600, offset_ay[28]: 800, offset_bx[28]: 800, offset_by[28]: 200
+Process 30 has offset_x[29]: 600, offset_y[29]: 400, offset_ax[29]: 600, offset_ay[29]: 1000, offset_bx[29]: 1000, offset_by[29]: 400
+Process 31 has offset_x[30]: 600, offset_y[30]: 600, offset_ax[30]: 600, offset_ay[30]: 1200, offset_bx[30]: 1200, offset_by[30]: 600
+Process 32 has offset_x[31]: 600, offset_y[31]: 800, offset_ax[31]: 600, offset_ay[31]: 1400, offset_bx[31]: 1400, offset_by[31]: 800
+Process 33 has offset_x[32]: 600, offset_y[32]: 1000, offset_ax[32]: 600, offset_ay[32]: 1600, offset_bx[32]: 1600, offset_by[32]: 1000
+Process 34 has offset_x[33]: 600, offset_y[33]: 1200, offset_ax[33]: 600, offset_ay[33]: 0, offset_bx[33]: 0, offset_by[33]: 1200
+Process 35 has offset_x[34]: 600, offset_y[34]: 1400, offset_ax[34]: 600, offset_ay[34]: 200, offset_bx[34]: 200, offset_by[34]: 1400
+Process 36 has offset_x[35]: 600, offset_y[35]: 1600, offset_ax[35]: 600, offset_ay[35]: 400, offset_bx[35]: 400, offset_by[35]: 1600
+Process 37 has offset_x[36]: 800, offset_y[36]: 0, offset_ax[36]: 800, offset_ay[36]: 800, offset_bx[36]: 800, offset_by[36]: 0
+Process 38 has offset_x[37]: 800, offset_y[37]: 200, offset_ax[37]: 800, offset_ay[37]: 1000, offset_bx[37]: 1000, offset_by[37]: 200
+Process 39 has offset_x[38]: 800, offset_y[38]: 400, offset_ax[38]: 800, offset_ay[38]: 1200, offset_bx[38]: 1200, offset_by[38]: 400
+Process 40 has offset_x[39]: 800, offset_y[39]: 600, offset_ax[39]: 800, offset_ay[39]: 1400, offset_bx[39]: 1400, offset_by[39]: 600
+Process 41 has offset_x[40]: 800, offset_y[40]: 800, offset_ax[40]: 800, offset_ay[40]: 1600, offset_bx[40]: 1600, offset_by[40]: 800
+Process 42 has offset_x[41]: 800, offset_y[41]: 1000, offset_ax[41]: 800, offset_ay[41]: 0, offset_bx[41]: 0, offset_by[41]: 1000
+Process 43 has offset_x[42]: 800, offset_y[42]: 1200, offset_ax[42]: 800, offset_ay[42]: 200, offset_bx[42]: 200, offset_by[42]: 1200
+Process 44 has offset_x[43]: 800, offset_y[43]: 1400, offset_ax[43]: 800, offset_ay[43]: 400, offset_bx[43]: 400, offset_by[43]: 1400
+Process 45 has offset_x[44]: 800, offset_y[44]: 1600, offset_ax[44]: 800, offset_ay[44]: 600, offset_bx[44]: 600, offset_by[44]: 1600
+Process 46 has offset_x[45]: 1000, offset_y[45]: 0, offset_ax[45]: 1000, offset_ay[45]: 1000, offset_bx[45]: 1000, offset_by[45]: 0
+Process 47 has offset_x[46]: 1000, offset_y[46]: 200, offset_ax[46]: 1000, offset_ay[46]: 1200, offset_bx[46]: 1200, offset_by[46]: 200
+Process 48 has offset_x[47]: 1000, offset_y[47]: 400, offset_ax[47]: 1000, offset_ay[47]: 1400, offset_bx[47]: 1400, offset_by[47]: 400
+Process 49 has offset_x[48]: 1000, offset_y[48]: 600, offset_ax[48]: 1000, offset_ay[48]: 1600, offset_bx[48]: 1600, offset_by[48]: 600
+Process 50 has offset_x[49]: 1000, offset_y[49]: 800, offset_ax[49]: 1000, offset_ay[49]: 0, offset_bx[49]: 0, offset_by[49]: 800
+Process 51 has offset_x[50]: 1000, offset_y[50]: 1000, offset_ax[50]: 1000, offset_ay[50]: 200, offset_bx[50]: 200, offset_by[50]: 1000
+Process 52 has offset_x[51]: 1000, offset_y[51]: 1200, offset_ax[51]: 1000, offset_ay[51]: 400, offset_bx[51]: 400, offset_by[51]: 1200
+Process 53 has offset_x[52]: 1000, offset_y[52]: 1400, offset_ax[52]: 1000, offset_ay[52]: 600, offset_bx[52]: 600, offset_by[52]: 1400
+Process 54 has offset_x[53]: 1000, offset_y[53]: 1600, offset_ax[53]: 1000, offset_ay[53]: 800, offset_bx[53]: 800, offset_by[53]: 1600
+Process 55 has offset_x[54]: 1200, offset_y[54]: 0, offset_ax[54]: 1200, offset_ay[54]: 1200, offset_bx[54]: 1200, offset_by[54]: 0
+Process 56 has offset_x[55]: 1200, offset_y[55]: 200, offset_ax[55]: 1200, offset_ay[55]: 1400, offset_bx[55]: 1400, offset_by[55]: 200
+Process 57 has offset_x[56]: 1200, offset_y[56]: 400, offset_ax[56]: 1200, offset_ay[56]: 1600, offset_bx[56]: 1600, offset_by[56]: 400
+Process 58 has offset_x[57]: 1200, offset_y[57]: 600, offset_ax[57]: 1200, offset_ay[57]: 0, offset_bx[57]: 0, offset_by[57]: 600
+Process 59 has offset_x[58]: 1200, offset_y[58]: 800, offset_ax[58]: 1200, offset_ay[58]: 200, offset_bx[58]: 200, offset_by[58]: 800
+Process 60 has offset_x[59]: 1200, offset_y[59]: 1000, offset_ax[59]: 1200, offset_ay[59]: 400, offset_bx[59]: 400, offset_by[59]: 1000
+Process 61 has offset_x[60]: 1200, offset_y[60]: 1200, offset_ax[60]: 1200, offset_ay[60]: 600, offset_bx[60]: 600, offset_by[60]: 1200
+Process 62 has offset_x[61]: 1200, offset_y[61]: 1400, offset_ax[61]: 1200, offset_ay[61]: 800, offset_bx[61]: 800, offset_by[61]: 1400
+Process 63 has offset_x[62]: 1200, offset_y[62]: 1600, offset_ax[62]: 1200, offset_ay[62]: 1000, offset_bx[62]: 1000, offset_by[62]: 1600
+Process 64 has offset_x[63]: 1400, offset_y[63]: 0, offset_ax[63]: 1400, offset_ay[63]: 1400, offset_bx[63]: 1400, offset_by[63]: 0
+Process 65 has offset_x[64]: 1400, offset_y[64]: 200, offset_ax[64]: 1400, offset_ay[64]: 1600, offset_bx[64]: 1600, offset_by[64]: 200
+Process 66 has offset_x[65]: 1400, offset_y[65]: 400, offset_ax[65]: 1400, offset_ay[65]: 0, offset_bx[65]: 0, offset_by[65]: 400
+Process 67 has offset_x[66]: 1400, offset_y[66]: 600, offset_ax[66]: 1400, offset_ay[66]: 200, offset_bx[66]: 200, offset_by[66]: 600
+Process 68 has offset_x[67]: 1400, offset_y[67]: 800, offset_ax[67]: 1400, offset_ay[67]: 400, offset_bx[67]: 400, offset_by[67]: 800
+Process 69 has offset_x[68]: 1400, offset_y[68]: 1000, offset_ax[68]: 1400, offset_ay[68]: 600, offset_bx[68]: 600, offset_by[68]: 1000
+Process 70 has offset_x[69]: 1400, offset_y[69]: 1200, offset_ax[69]: 1400, offset_ay[69]: 800, offset_bx[69]: 800, offset_by[69]: 1200
+Process 71 has offset_x[70]: 1400, offset_y[70]: 1400, offset_ax[70]: 1400, offset_ay[70]: 1000, offset_bx[70]: 1000, offset_by[70]: 1400
+Process 72 has offset_x[71]: 1400, offset_y[71]: 1600, offset_ax[71]: 1400, offset_ay[71]: 1200, offset_bx[71]: 1200, offset_by[71]: 1600
+Process 73 has offset_x[72]: 1600, offset_y[72]: 0, offset_ax[72]: 1600, offset_ay[72]: 1600, offset_bx[72]: 1600, offset_by[72]: 0
+Process 74 has offset_x[73]: 1600, offset_y[73]: 200, offset_ax[73]: 1600, offset_ay[73]: 0, offset_bx[73]: 0, offset_by[73]: 200
+Process 75 has offset_x[74]: 1600, offset_y[74]: 400, offset_ax[74]: 1600, offset_ay[74]: 200, offset_bx[74]: 200, offset_by[74]: 400
+Process 76 has offset_x[75]: 1600, offset_y[75]: 600, offset_ax[75]: 1600, offset_ay[75]: 400, offset_bx[75]: 400, offset_by[75]: 600
+Process 77 has offset_x[76]: 1600, offset_y[76]: 800, offset_ax[76]: 1600, offset_ay[76]: 600, offset_bx[76]: 600, offset_by[76]: 800
+Process 78 has offset_x[77]: 1600, offset_y[77]: 1000, offset_ax[77]: 1600, offset_ay[77]: 800, offset_bx[77]: 800, offset_by[77]: 1000
+Process 79 has offset_x[78]: 1600, offset_y[78]: 1200, offset_ax[78]: 1600, offset_ay[78]: 1000, offset_bx[78]: 1000, offset_by[78]: 1200
+Process 80 has offset_x[79]: 1600, offset_y[79]: 1400, offset_ax[79]: 1600, offset_ay[79]: 1200, offset_bx[79]: 1200, offset_by[79]: 1400
+Process 81 has offset_x[80]: 1600, offset_y[80]: 1600, offset_ax[80]: 1600, offset_ay[80]: 1400, offset_bx[80]: 1400, offset_by[80]: 1600
+There are 9 blocks in each direction
+Each block has size 200
+---- Starting Process 78 / 82 ----
+Process 78: left has world rank 77, right has world rank 79, top has world rank 69, bottom has world rank 6
+---- Starting Process 39 / 82 ----
+Process 39: left has world rank 38, right has world rank 40, top has world rank 30, bottom has world rank 48
+---- Starting Process 61 / 82 ----
+Process 61: left has world rank 60, right has world rank 62, top has world rank 52, bottom has world rank 70
+---- Starting Process 2 / 82 ----
+Process 2: left has world rank 1, right has world rank 3, top has world rank 74, bottom has world rank 11
+---- Starting Process 79 / 82 ----
+Process 79: left has world rank 78, right has world rank 80, top has world rank 70, bottom has world rank 7
+---- Starting Process 40 / 82 ----
+Process 40: left has world rank 39, right has world rank 41, top has world rank 31, bottom has world rank 49
+---- Starting Process 42 / 82 ----
+Process 42: left has world rank 41, right has world rank 43, top has world rank 33, bottom has world rank 51
+---- Starting Process 6 / 82 ----
+Process 6: left has world rank 5, right has world rank 7, top has world rank 78, bottom has world rank 15
+---- Starting Process 64 / 82 ----
+Process 64: left has world rank 72, right has world rank 65, top has world rank 55, bottom has world rank 73
+---- Starting Process 41 / 82 ----
+Process 41: left has world rank 40, right has world rank 42, top has world rank 32, bottom has world rank 50
+---- Starting Process 43 / 82 ----
+Process 43: left has world rank 42, right has world rank 44, top has world rank 34, bottom has world rank 52
+---- Starting Process 9 / 82 ----
+Process 9: left has world rank 8, right has world rank 1, top has world rank 81, bottom has world rank 18
+---- Starting Process 67 / 82 ----
+Process 67: left has world rank 66, right has world rank 68, top has world rank 58, bottom has world rank 76
+---- Starting Process 25 / 82 ----
+Process 25: left has world rank 24, right has world rank 26, top has world rank 16, bottom has world rank 34
+---- Starting Process 44 / 82 ----
+Process 44: left has world rank 43, right has world rank 45, top has world rank 35, bottom has world rank 53
+---- Starting Process 11 / 82 ----
+Process 11: left has world rank 10, right has world rank 12, top has world rank 2, bottom has world rank 20
+---- Starting Process 70 / 82 ----
+Process 70: left has world rank 69, right has world rank 71, top has world rank 61, bottom has world rank 79
+---- Starting Process 26 / 82 ----
+Process 26: left has world rank 25, right has world rank 27, top has world rank 17, bottom has world rank 35
+---- Starting Process 45 / 82 ----
+Process 45: left has world rank 44, right has world rank 37, top has world rank 36, bottom has world rank 54
+---- Starting Process 12 / 82 ----
+Process 12: left has world rank 11, right has world rank 13, top has world rank 3, bottom has world rank 21
+---- Starting Process 73 / 82 ----
+Process 73: left has world rank 81, right has world rank 74, top has world rank 64, bottom has world rank 1
+---- Starting Process 27 / 82 ----
+Process 27: left has world rank 26, right has world rank 19, top has world rank 18, bottom has world rank 36
+---- Starting Process 50 / 82 ----
+Process 50: left has world rank 49, right has world rank 51, top has world rank 41, bottom has world rank 59
+---- Starting Process 13 / 82 ----
+Process 13: left has world rank 12, right has world rank 14, top has world rank 4, bottom has world rank 22
+---- Starting Process 75 / 82 ----
+Process 75: left has world rank 74, right has world rank 76, top has world rank 66, bottom has world rank 3
+---- Starting Process 28 / 82 ----
+Process 28: left has world rank 36, right has world rank 29, top has world rank 19, bottom has world rank 37
+---- Starting Process 51 / 82 ----
+Process 51: left has world rank 50, right has world rank 52, top has world rank 42, bottom has world rank 60
+---- Starting Process 16 / 82 ----
+Process 16: left has world rank 15, right has world rank 17, top has world rank 7, bottom has world rank 25
+---- Starting Process 77 / 82 ----
+Process 77: left has world rank 76, right has world rank 78, top has world rank 68, bottom has world rank 5
+---- Starting Process 30 / 82 ----
+Process 30: left has world rank 29, right has world rank 31, top has world rank 21, bottom has world rank 39
+---- Starting Process 52 / 82 ----
+Process 52: left has world rank 51, right has world rank 53, top has world rank 43, bottom has world rank 61
+---- Starting Process 17 / 82 ----
+Process 17: left has world rank 16, right has world rank 18, top has world rank 8, bottom has world rank 26
+---- Starting Process 80 / 82 ----
+Process 80: left has world rank 79, right has world rank 81, top has world rank 71, bottom has world rank 8
+---- Starting Process 32 / 82 ----
+Process 32: left has world rank 31, right has world rank 33, top has world rank 23, bottom has world rank 41
+---- Starting Process 53 / 82 ----
+Process 53: left has world rank 52, right has world rank 54, top has world rank 44, bottom has world rank 62
+---- Starting Process 19 / 82 ----
+Process 19: left has world rank 27, right has world rank 20, top has world rank 10, bottom has world rank 28
+---- Starting Process 81 / 82 ----
+Process 81: left has world rank 80, right has world rank 73, top has world rank 72, bottom has world rank 9
+---- Starting Process 36 / 82 ----
+Process 36: left has world rank 35, right has world rank 28, top has world rank 27, bottom has world rank 45
+---- Starting Process 20 / 82 ----
+Process 20: left has world rank 19, right has world rank 21, top has world rank 11, bottom has world rank 29
+---- Starting Process 38 / 82 ----
+Process 38: left has world rank 37, right has world rank 39, top has world rank 29, bottom has world rank 47
+Process 10: left has world rank 18, right has world rank 11, top has world rank 1, bottom has world rank 19
+n:     1800
+p:     0.05
+Time:  0.140224
+Check: 7C67

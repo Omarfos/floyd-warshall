@@ -1,11 +1,20 @@
----- Starting Process 0 / 2 ----
+---- Starting Process 0 / 5 ----
 Process 0 does output file IO and command line IO
 Process 1 has offset_x[0]: 0, offset_y[0]: 0, offset_ax[0]: 0, offset_ay[0]: 0, offset_bx[0]: 0, offset_by[0]: 0
-There are 1 blocks in each direction
-Each block has size 200
----- Starting Process 1 / 2 ----
-Process 1: left has world rank 1, right has world rank 1, top has world rank 1, bottom has world rank 1
-n:     200
+Process 2 has offset_x[1]: 0, offset_y[1]: 300, offset_ax[1]: 0, offset_ay[1]: 300, offset_bx[1]: 300, offset_by[1]: 300
+Process 3 has offset_x[2]: 300, offset_y[2]: 0, offset_ax[2]: 300, offset_ay[2]: 300, offset_bx[2]: 300, offset_by[2]: 0
+Process 4 has offset_x[3]: 300, offset_y[3]: 300, offset_ax[3]: 300, offset_ay[3]: 0, offset_bx[3]: 0, offset_by[3]: 300
+There are 2 blocks in each direction
+Each block has size 300
+---- Starting Process 1 / 5 ----
+Process 1: left has world rank 2, right has world rank 2, top has world rank 3, bottom has world rank 3
+---- Starting Process 2 / 5 ----
+Process 2: left has world rank 1, right has world rank 1, top has world rank 4, bottom has world rank 4
+---- Starting Process 3 / 5 ----
+Process 3: left has world rank 4, right has world rank 4, top has world rank 1, bottom has world rank 1
+---- Starting Process 4 / 5 ----
+Process 4: left has world rank 3, right has world rank 3, top has world rank 2, bottom has world rank 2
+n:     600
 p:     0.05
-Time:  0.063037
-Check: 9F8F
+Time:  0.062465
+Check: 5FD6

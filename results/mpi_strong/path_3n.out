@@ -1,1 +1,56 @@
-17 total processes failed to start
+---- Starting Process 0 / 17 ----
+Process 0 does output file IO and command line IO
+Process 1 has offset_x[0]: 0, offset_y[0]: 0, offset_ax[0]: 0, offset_ay[0]: 0, offset_bx[0]: 0, offset_by[0]: 0
+Process 2 has offset_x[1]: 0, offset_y[1]: 450, offset_ax[1]: 0, offset_ay[1]: 450, offset_bx[1]: 450, offset_by[1]: 450
+Process 3 has offset_x[2]: 0, offset_y[2]: 900, offset_ax[2]: 0, offset_ay[2]: 900, offset_bx[2]: 900, offset_by[2]: 900
+Process 4 has offset_x[3]: 0, offset_y[3]: 1350, offset_ax[3]: 0, offset_ay[3]: 1350, offset_bx[3]: 1350, offset_by[3]: 1350
+Process 5 has offset_x[4]: 450, offset_y[4]: 0, offset_ax[4]: 450, offset_ay[4]: 450, offset_bx[4]: 450, offset_by[4]: 0
+Process 6 has offset_x[5]: 450, offset_y[5]: 450, offset_ax[5]: 450, offset_ay[5]: 900, offset_bx[5]: 900, offset_by[5]: 450
+Process 7 has offset_x[6]: 450, offset_y[6]: 900, offset_ax[6]: 450, offset_ay[6]: 1350, offset_bx[6]: 1350, offset_by[6]: 900
+Process 8 has offset_x[7]: 450, offset_y[7]: 1350, offset_ax[7]: 450, offset_ay[7]: 0, offset_bx[7]: 0, offset_by[7]: 1350
+Process 9 has offset_x[8]: 900, offset_y[8]: 0, offset_ax[8]: 900, offset_ay[8]: 900, offset_bx[8]: 900, offset_by[8]: 0
+Process 10 has offset_x[9]: 900, offset_y[9]: 450, offset_ax[9]: 900, offset_ay[9]: 1350, offset_bx[9]: 1350, offset_by[9]: 450
+Process 11 has offset_x[10]: 900, offset_y[10]: 900, offset_ax[10]: 900, offset_ay[10]: 0, offset_bx[10]: 0, offset_by[10]: 900
+Process 12 has offset_x[11]: 900, offset_y[11]: 1350, offset_ax[11]: 900, offset_ay[11]: 450, offset_bx[11]: 450, offset_by[11]: 1350
+Process 13 has offset_x[12]: 1350, offset_y[12]: 0, offset_ax[12]: 1350, offset_ay[12]: 1350, offset_bx[12]: 1350, offset_by[12]: 0
+Process 14 has offset_x[13]: 1350, offset_y[13]: 450, offset_ax[13]: 1350, offset_ay[13]: 0, offset_bx[13]: 0, offset_by[13]: 450
+Process 15 has offset_x[14]: 1350, offset_y[14]: 900, offset_ax[14]: 1350, offset_ay[14]: 450, offset_bx[14]: 450, offset_by[14]: 900
+Process 16 has offset_x[15]: 1350, offset_y[15]: 1350, offset_ax[15]: 1350, offset_ay[15]: 900, offset_bx[15]: 900, offset_by[15]: 1350
+There are 4 blocks in each direction
+Each block has size 450
+---- Starting Process 10 / 17 ----
+Process 10: left has world rank 9, right has world rank 11, top has world rank 6, bottom has world rank 14
+---- Starting Process 12 / 17 ----
+Process 12: left has world rank 11, right has world rank 9, top has world rank 8, bottom has world rank 16
+---- Starting Process 7 / 17 ----
+Process 7: left has world rank 6, right has world rank 8, top has world rank 3, bottom has world rank 11
+---- Starting Process 14 / 17 ----
+Process 14: left has world rank 13, right has world rank 15, top has world rank 10, bottom has world rank 2
+---- Starting Process 13 / 17 ----
+Process 13: left has world rank 16, right has world rank 14, top has world rank 9, bottom has world rank 1
+---- Starting Process 16 / 17 ----
+Process 16: left has world rank 15, right has world rank 13, top has world rank 12, bottom has world rank 4
+---- Starting Process 4 / 17 ----
+Process 4: left has world rank 3, right has world rank 1, top has world rank 16, bottom has world rank 8
+---- Starting Process 6 / 17 ----
+Process 6: left has world rank 5, right has world rank 7, top has world rank 2, bottom has world rank 10
+---- Starting Process 8 / 17 ----
+Process 8: left has world rank 7, right has world rank 5, top has world rank 4, bottom has world rank 12
+---- Starting Process 5 / 17 ----
+Process 5: left has world rank 8, right has world rank 6, top has world rank 1, bottom has world rank 9
+---- Starting Process 9 / 17 ----
+Process 9: left has world rank 12, right has world rank 10, top has world rank 5, bottom has world rank 13
+---- Starting Process 2 / 17 ----
+Process 2: left has world rank 1, right has world rank 3, top has world rank 14, bottom has world rank 6
+---- Starting Process 15 / 17 ----
+Process 15: left has world rank 14, right has world rank 16, top has world rank 11, bottom has world rank 3
+---- Starting Process 11 / 17 ----
+Process 11: left has world rank 10, right has world rank 12, top has world rank 7, bottom has world rank 15
+---- Starting Process 1 / 17 ----
+Process 1: left has world rank 4, right has world rank 2, top has world rank 13, bottom has world rank 5
+---- Starting Process 3 / 17 ----
+Process 3: left has world rank 2, right has world rank 4, top has world rank 15, bottom has world rank 7
+n:     1800
+p:     0.05
+Time:  0.480095
+Check: 7C67

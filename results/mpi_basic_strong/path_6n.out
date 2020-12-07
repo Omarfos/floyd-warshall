@@ -1,1 +1,5 @@
-50 total processes failed to start
+== MPI with 50 ranks
+n:     1800
+p:     0.05
+Time:  3.16183
+Check: 7C67

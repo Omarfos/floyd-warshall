@@ -1,5 +1,5 @@
-== MPI with 10 ranks
-n:     200
+== MPI with 5 ranks
+n:     600
 p:     0.05
-Time:  0.008432
-Check: 9F8F
+Time:  0.119333
+Check: 5FD6

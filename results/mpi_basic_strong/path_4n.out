@@ -1,1 +1,5 @@
-25 total processes failed to start
+== MPI with 25 ranks
+n:     1800
+p:     0.05
+Time:  6.27616
+Check: 7C67

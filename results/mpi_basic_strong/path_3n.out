@@ -1,1 +1,5 @@
-18 total processes failed to start
+== MPI with 18 ranks
+n:     1800
+p:     0.05
+Time:  8.59633
+Check: 7C67

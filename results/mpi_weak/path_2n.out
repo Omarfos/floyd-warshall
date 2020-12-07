@@ -1,20 +1,35 @@
----- Starting Process 0 / 5 ----
+---- Starting Process 0 / 10 ----
 Process 0 does output file IO and command line IO
 Process 1 has offset_x[0]: 0, offset_y[0]: 0, offset_ax[0]: 0, offset_ay[0]: 0, offset_bx[0]: 0, offset_by[0]: 0
-Process 2 has offset_x[1]: 0, offset_y[1]: 200, offset_ax[1]: 0, offset_ay[1]: 200, offset_bx[1]: 200, offset_by[1]: 200
-Process 3 has offset_x[2]: 200, offset_y[2]: 0, offset_ax[2]: 200, offset_ay[2]: 200, offset_bx[2]: 200, offset_by[2]: 0
-Process 4 has offset_x[3]: 200, offset_y[3]: 200, offset_ax[3]: 200, offset_ay[3]: 0, offset_bx[3]: 0, offset_by[3]: 200
-There are 2 blocks in each direction
-Each block has size 200
----- Starting Process 2 / 5 ----
-Process 2: left has world rank 1, right has world rank 1, top has world rank 4, bottom has world rank 4
----- Starting Process 3 / 5 ----
-Process 3: left has world rank 4, right has world rank 4, top has world rank 1, bottom has world rank 1
----- Starting Process 4 / 5 ----
-Process 4: left has world rank 3, right has world rank 3, top has world rank 2, bottom has world rank 2
----- Starting Process 1 / 5 ----
-Process 1: left has world rank 2, right has world rank 2, top has world rank 3, bottom has world rank 3
-n:     400
+Process 2 has offset_x[1]: 0, offset_y[1]: 300, offset_ax[1]: 0, offset_ay[1]: 300, offset_bx[1]: 300, offset_by[1]: 300
+Process 3 has offset_x[2]: 0, offset_y[2]: 600, offset_ax[2]: 0, offset_ay[2]: 600, offset_bx[2]: 600, offset_by[2]: 600
+Process 4 has offset_x[3]: 300, offset_y[3]: 0, offset_ax[3]: 300, offset_ay[3]: 300, offset_bx[3]: 300, offset_by[3]: 0
+Process 5 has offset_x[4]: 300, offset_y[4]: 300, offset_ax[4]: 300, offset_ay[4]: 600, offset_bx[4]: 600, offset_by[4]: 300
+Process 6 has offset_x[5]: 300, offset_y[5]: 600, offset_ax[5]: 300, offset_ay[5]: 0, offset_bx[5]: 0, offset_by[5]: 600
+Process 7 has offset_x[6]: 600, offset_y[6]: 0, offset_ax[6]: 600, offset_ay[6]: 600, offset_bx[6]: 600, offset_by[6]: 0
+Process 8 has offset_x[7]: 600, offset_y[7]: 300, offset_ax[7]: 600, offset_ay[7]: 0, offset_bx[7]: 0, offset_by[7]: 300
+Process 9 has offset_x[8]: 600, offset_y[8]: 600, offset_ax[8]: 600, offset_ay[8]: 300, offset_bx[8]: 300, offset_by[8]: 600
+---- Starting Process 1 / 10 ----
+Process 1: left has world rank 3, right has world rank 2, top has world rank 7, bottom has world rank 4
+---- Starting Process 2 / 10 ----
+Process 2: left has world rank 1, right has world rank 3, top has world rank 8, bottom has world rank 5
+---- Starting Process 4 / 10 ----
+Process 4: left has world rank 6, right has world rank 5, top has world rank 1, bottom has world rank 7
+---- Starting Process 6 / 10 ----
+Process 6: left has world rank 5, right has world rank 4, top has world rank 3, bottom has world rank 9
+There are 3 blocks in each direction
+Each block has size 300
+---- Starting Process 3 / 10 ----
+Process 3: left has world rank 2, right has world rank 1, top has world rank 9, bottom has world rank 6
+---- Starting Process 9 / 10 ----
+Process 9: left has world rank 8, right has world rank 7, top has world rank 6, bottom has world rank 3
+---- Starting Process 5 / 10 ----
+Process 5: left has world rank 4, right has world rank 6, top has world rank 2, bottom has world rank 8
+---- Starting Process 7 / 10 ----
+Process 7: left has world rank 9, right has world rank 8, top has world rank 4, bottom has world rank 1
+---- Starting Process 8 / 10 ----
+Process 8: left has world rank 7, right has world rank 9, top has world rank 5, bottom has world rank 2
+n:     900
 p:     0.05
-Time:  0.116271
-Check: 4312
+Time:  0.098162
+Check: 7F85

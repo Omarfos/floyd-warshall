@@ -12,6 +12,8 @@ mpi_weakresultdir = 'results/mpi_weak/'
 
 mydir = '$HOME/floyd-warshall'
 
+partition = 'compute' # 'cs5220' for graphite
+
 # generate strong scaling .sub files
 
 for i in range(0, numnode):
@@ -28,7 +30,7 @@ for i in range(0, numnode):
     f.write('#SBATCH --get-user-env \n')
     f.write('#SBATCH -t 00:10:00 \n')
     f.write('#SBATCH --mem-per-cpu=1000 \n')
-    f.write('#SBATCH --partition=cs5220 \n')
+    f.write('#SBATCH --partition=' + partition + '\n')
     f.write('\n')
     f.write('export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK\n')
     f.write('cd ' + mydir + ' \n')
@@ -50,11 +52,11 @@ for i in range(0, numnode):
     f.write('#SBATCH --get-user-env \n')
     f.write('#SBATCH -t 00:10:00 \n')
     f.write('#SBATCH --mem-per-cpu=1000 \n')
-    f.write('#SBATCH --partition=cs5220 \n')
+    f.write('#SBATCH --partition=' + partition + '\n')
     f.write('\n')
     f.write('export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK\n')
     f.write('source /etc/profile.d/modules.sh \n')
-    f.write('module load openmpi-4.0.0 \n')
+    #f.write('module load openmpi-4.0.0 \n')
     f.write('cd ' + mydir + ' \n')
     f.write('./path.x -n ' + str((i+2)*300) + ' \n')
     f.write('\n')
@@ -77,13 +79,13 @@ for i in range(1, numnode + 1):
     f.write('#SBATCH --get-user-env \n')
     f.write('#SBATCH -t 00:10:00 \n')
     f.write('#SBATCH --mem-per-cpu=1000 \n')
-    f.write('#SBATCH --partition=cs5220 \n')
+    f.write('#SBATCH --partition=' + partition + '\n')
     
     f.write('\n')
 
     f.write('cd ' + mydir + ' \n')
     f.write('source /etc/profile.d/modules.sh \n')
-    f.write('module load openmpi-4.0.0 \n')
+    #f.write('module load openmpi-4.0.0 \n')
     f.write('mpirun -n ' +  str(size)  + ' ./path-mpi-cannon.x -n 1800\n')
     f.write('\n')
 
@@ -103,13 +105,13 @@ for i in range(1, numnode + 1):
     f.write('#SBATCH --get-user-env \n')
     f.write('#SBATCH -t 00:10:00 \n')
     f.write('#SBATCH --mem-per-cpu=1000 \n')
-    f.write('#SBATCH --partition=cs5220 \n')
+    f.write('#SBATCH --partition=' + partition + '\n')
     
     f.write('\n')
 
     f.write('cd ' + mydir + ' \n')
     f.write('source /etc/profile.d/modules.sh \n')
-    f.write('module load openmpi-4.0.0 \n')
+    #f.write('module load openmpi-4.0.0 \n')
     f.write('mpirun -n ' +  str(size) + ' ./path-mpi-cannon.x -n ' + str((i+1)*300) + '\n')
     f.write('\n')
 
@@ -137,13 +139,13 @@ for i in range(1, numnode+1):
     f.write('#SBATCH --get-user-env \n')
     f.write('#SBATCH -t 00:10:00 \n')
     f.write('#SBATCH --mem-per-cpu=1000 \n')
-    f.write('#SBATCH --partition=cs5220 \n')
+    f.write('#SBATCH --partition=' + partition + '\n')
     
     f.write('\n')
 
     f.write('cd ' + mydir + ' \n')
     f.write('source /etc/profile.d/modules.sh \n')
-    f.write('module load openmpi-4.0.0 \n')
+    #f.write('module load openmpi-4.0.0 \n')
     f.write('mpirun -n ' +  str(n[i-1])  + ' ./path-mpi.x -n 1800\n')
     f.write('\n')
 
@@ -161,12 +163,12 @@ for i in range(1, numnode+1):
     f.write('#SBATCH --get-user-env \n')
     f.write('#SBATCH -t 00:10:00 \n')
     f.write('#SBATCH --mem-per-cpu=1000 \n')
-    f.write('#SBATCH --partition=cs5220 \n')
+    f.write('#SBATCH --partition=' + partition + '\n')
     
     f.write('\n')
 
     f.write('cd ' + mydir + ' \n')
     f.write('source /etc/profile.d/modules.sh \n')
-    f.write('module load openmpi-4.0.0 \n')
+    #f.write('module load openmpi-4.0.0 \n')
     f.write('mpirun -n ' +  str(n[i-1]) + ' ./path-mpi.x -n ' + str(tasks[i-1]) + '\n')
     f.write('\n')

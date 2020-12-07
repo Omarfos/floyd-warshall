@@ -1,5 +1,5 @@
-== MPI with 50 ranks
-n:     1000
+== MPI with 36 ranks
+n:     1800
 p:     0.05
-Time:  0.289194
-Check: CC6A
+Time:  4.49671
+Check: 7C67

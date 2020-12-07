@@ -251,7 +251,7 @@ void send_initial_graph(int* restrict l, int world_rank, int world_size,
 void recv_initial_graph(int* restrict l, int world_rank, int size_block) {
     int len = size_block * size_block;
     MPI_Recv(l, len, MPI_INT, 0, 
-            0, MPI_COMM_WORLD, NULL);
+            0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     // printf("Process %d recv initial graph from process %d\n", world_rank, 0);
 }
 
@@ -276,9 +276,9 @@ void send_current_graph(int* restrict l, int world_rank, int world_size,
 void recv_current_graph(int* restrict la, int* restrict lb, int world_rank, int size_block) {
     int len = size_block * size_block;
     MPI_Recv(la, len, MPI_INT, 0, 
-            0, MPI_COMM_WORLD, NULL);
+            0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     MPI_Recv(lb, len, MPI_INT, 0, 
-            0, MPI_COMM_WORLD, NULL);
+            0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     // printf("Process %d recv current graph from process %d\n", world_rank, 0);
 }
 
@@ -300,10 +300,10 @@ int recv_updated_graph(int* restrict l, int world_rank, int world_size,
         int len = size_block * size_block;
         int* buffer = malloc(len * sizeof(int));
         MPI_Recv(&done_, 1, MPI_INT, i, 
-                0, MPI_COMM_WORLD, NULL);
+                0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         done = done && done_;
         MPI_Recv(buffer, len, MPI_INT, i, 
-                0, MPI_COMM_WORLD, NULL);
+                0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         copy_in(buffer, l + offset_x[i-1] + offset_y[i-1] * n, size_block, size_block, n);
         free(buffer);
         // printf("Process %d recv updated graph from process %d\n", world_rank, i);
@@ -499,14 +499,14 @@ int main(int argc, char** argv)
                             MPI_Send(buffer, len, MPI_INT, l_rank_0+1, 
                                     0, MPI_COMM_WORLD);
                             MPI_Recv(la, len, MPI_INT, r_rank_0+1, 
-                                    0, MPI_COMM_WORLD, NULL);
+                                    0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
                             free(buffer);
                         }
                         else {
                             int* buffer = malloc(len * sizeof(int));
                             copy_out(buffer, la, size_block, size_block, size_block);
                             MPI_Recv(la, len, MPI_INT, r_rank_0+1, 
-                                    0, MPI_COMM_WORLD, NULL);
+                                    0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
                             MPI_Send(buffer, len, MPI_INT, l_rank_0+1, 
                                     0, MPI_COMM_WORLD);
                             free(buffer);
@@ -520,14 +520,14 @@ int main(int argc, char** argv)
                             MPI_Send(buffer, len, MPI_INT, t_rank_0+1, 
                                     0, MPI_COMM_WORLD);
                             MPI_Recv(lb, len, MPI_INT, b_rank_0+1, 
-                                    0, MPI_COMM_WORLD, NULL);
+                                    0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
                             free(buffer);
                         }
                         else {
                             int* buffer = malloc(len * sizeof(int));
                             copy_out(buffer, lb, size_block, size_block, size_block);
                             MPI_Recv(lb, len, MPI_INT, b_rank_0+1, 
-                                    0, MPI_COMM_WORLD, NULL);
+                                    0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
                             MPI_Send(buffer, len, MPI_INT, t_rank_0+1, 
                                     0, MPI_COMM_WORLD);
                             free(buffer);
@@ -544,7 +544,7 @@ int main(int argc, char** argv)
 
             // Receive update to variable done
             MPI_Recv(&done, 1, MPI_INT, 0, 
-                    0, MPI_COMM_WORLD, NULL);
+                    0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         }
 
         free(l);

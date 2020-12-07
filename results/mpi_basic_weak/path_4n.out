@@ -1,5 +1,5 @@
-== MPI with 40 ranks
-n:     800
+== MPI with 25 ranks
+n:     1500
 p:     0.05
-Time:  0.167115
-Check: C008
+Time:  3.50382
+Check: 11FB
