@@ -62,7 +62,7 @@ int square(int n,               // Number of nodes
     return done;
 }
 
-int square_(int n, int* restrict l, int* restrict la, int* restrict lb)
+int square_(int n, int* restrict la, int* restrict lb, int* restrict l)
 {
     int done = 1;
     for (int j = 0; j < n; ++j) {
@@ -77,6 +77,59 @@ int square_(int n, int* restrict l, int* restrict la, int* restrict lb)
                 }
             }
             l[j*n+i] = lij;
+        }
+    }
+    return done;
+}
+
+int square_jki(const int lda, const int M, const int N, const int K,
+               const int* restrict la, const int* restrict lb, int* restrict l)
+{
+    int done = 1;
+    for (int j = 0; j < N; ++j) {
+        for (int k = 0; k < K; ++k) {
+            int lkj = lb[j*lda+k];
+            for (int i = 0; i < M; ++i) {
+                int lij = l[j*lda+i];
+                int lik = la[k*lda+i];
+                if (lik + lkj < lij) {
+                    lij = lik+lkj;
+                    done = 0;
+                }
+                l[j*lda+i] = lij;
+            }
+        }
+    }
+    return done;
+}
+
+int do_block(const int lda, const int BLOCK_SIZE,
+              const int* restrict la, const int* restrict lb, int* restrict l, 
+              const int i, const int j, const int k)
+{
+    int done = 1;
+    const int M = (i+BLOCK_SIZE > lda? lda-i : BLOCK_SIZE);
+    const int N = (j+BLOCK_SIZE > lda? lda-j : BLOCK_SIZE);
+    const int K = (k+BLOCK_SIZE > lda? lda-k : BLOCK_SIZE);
+    done = done && square_jki(lda, M, N, K,
+                              la + i + k*lda, lb + k + j*lda, l + i + j*lda);
+    return done;
+}
+
+int square_blocked(int M, const int* restrict la, const int* restrict lb, int* restrict l)
+{
+    int done = 1;
+    const int BLOCK_SIZE = 32;
+    const int n_blocks = M / BLOCK_SIZE + (M%BLOCK_SIZE? 1 : 0);
+    int bi, bj, bk;
+    for (bi = 0; bi < n_blocks; ++bi) {
+        const int i = bi * BLOCK_SIZE;
+        for (bj = 0; bj < n_blocks; ++bj) {
+            const int j = bj * BLOCK_SIZE;
+            for (bk = 0; bk < n_blocks; ++bk) {
+                const int k = bk * BLOCK_SIZE;
+                done = done && do_block(M, BLOCK_SIZE, la, lb, l, i, j, k);
+            }
         }
     }
     return done;
@@ -520,7 +573,9 @@ int main(int argc, char** argv)
                 }
 
                 // Call square_()
-                done = done_ && square_(size_block, l, la, lb);
+                done = done_ && square_blocked(size_block, la, lb, l);
+                // done = done_ && square_jki(size_block, size_block, size_block, size_block, la, lb, l);
+                // done = done_ && square_(size_block, la, lb, l);
             }
 
             // Send updated l
