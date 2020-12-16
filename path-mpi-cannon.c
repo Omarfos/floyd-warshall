@@ -82,6 +82,27 @@ int square_(int n, int* restrict l, int* restrict la, int* restrict lb)
     return done;
 }
 
+int square_jki(const int lda, const int M, const int N, const int K,
+               int* restrict l, const int* restrict la, const int* restrict lb)
+{
+    int done = 1;
+    for (int j = 0; j < N; ++j) {
+        for (int k = 0; k < K; ++k) {
+            int lkj = lb[j*lda+k];
+            for (int i = 0; i < M; ++i) {
+                int lij = l[j*lda+i];
+                int lik = la[k*lda+i];
+                if (lik + lkj < lij) {
+                    lij = lik+lkj;
+                    done = 0;
+                }
+                l[j*lda+i] = lij;
+            }
+        }
+    }
+    return done;
+}
+
 /**
  *
  * The value $l_{ij}^0$ is almost the same as the $(i,j)$ entry of
@@ -520,7 +541,8 @@ int main(int argc, char** argv)
                 }
 
                 // Call square_()
-                done = done_ && square_(size_block, l, la, lb);
+                // done = done_ && square_(size_block, l, la, lb);
+                done = done_ && square_jki(size_block, size_block, size_block, size_block, l, la, lb);
             }
 
             // Send updated l
